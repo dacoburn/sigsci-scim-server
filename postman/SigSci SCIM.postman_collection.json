@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "9c81b488-2f99-4a70-8399-8d35d57f8d0f",
+		"name": "SigSci SCIM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Specific User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-user",
+						"value": "{{api_user}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-token",
+						"value": "{{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-corp",
+						"value": "{{api_corp}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/scim/v2/Users/{{user}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"scim",
+						"v2",
+						"Users",
+						"{{user}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-user",
+						"value": "{{api_user}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-token",
+						"value": "{{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-corp",
+						"value": "{{api_corp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/scim+json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": " application/scim+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Charset",
+						"value": "utf-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/scim/v2/Users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"scim",
+						"v2",
+						"Users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-user",
+						"value": "{{api_user}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-token",
+						"value": "{{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-corp",
+						"value": "{{api_corp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": " application/scim+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Charset",
+						"value": "utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\": true,\n    \"id\": \"example@user.com\",\n    \"name\": {\n        \"familyName\": \"Coburn\",\n        \"givenName\": \"Douglas\"\n    },\n    \"role\": \"corpAdmin\",\n    \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\"\n    ],\n    \"sites\": [\n        \"kube-sidecar-nginx-ingress\",\n        \"kube-sidecar-nginx\",\n        \"kube-sigsci-rp\",\n        \"kube-sidecar-apache\"\n    ],\n    \"userName\": \"example@user.com\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/scim/v2/Users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"scim",
+						"v2",
+						"Users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch User",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-api-user",
+						"value": "{{api_user}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-token",
+						"value": "{{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-corp",
+						"value": "{{api_corp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/scim+json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": " application/scim+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Charset",
+						"value": "utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\": true,\n    \"id\": \"example@user.com\",\n    \"name\": {\n        \"familyName\": \"Coburn\",\n        \"givenName\": \"Douglas\"\n    },\n    \"role\": \"corpUser\",\n    \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\"\n    ],\n    \"sites\": [\n        \"kube-sidecar-nginx-ingress\",\n        \"kube-sidecar-nginx\",\n        \"kube-sigsci-rp\",\n        \"kube-sidecar-apache\"\n    ],\n    \"userName\": \"example@user.com\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/scim/v2/Users/{{user}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"scim",
+						"v2",
+						"Users",
+						"{{user}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-api-user",
+						"value": "{{api_user}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-token",
+						"value": "{{api_token}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-corp",
+						"value": "{{api_corp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/scim+json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": " application/scim+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Charset",
+						"value": "utf-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/scim/v2/Users/{{user}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"scim",
+						"v2",
+						"Users",
+						"{{user}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
