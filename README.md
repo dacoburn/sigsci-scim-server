@@ -6,6 +6,8 @@ Basic SCIM Server based on Okta's Example at https://github.com/oktadeveloper/ok
 
 It should be as simple as running `python scim-server-sigsci.py`
 
+There are self signed certs that you can use for testing but I recommend creating your own or using real certs...
+
 
 # Authentication
 
