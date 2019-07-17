@@ -14,6 +14,7 @@ There are self signed certs that you can use for testing but I recommend creatin
 I have setup the server to use Three headers for authentication. These values are effectively passed on to the SigSci API.
 
 **Headers**
+
 | Name | Value |
 |------|-------|
 | x-api-user | This is the username to authenticate to Sigsci with i.e. `user@domain.com` |
