@@ -5,7 +5,7 @@
        - image: python:3.5-alpine3.9
      steps:
        - checkout
-       - run: apk update && apk install curl && apk cache clean
+       - run: apk update && apk add curl && apk cache clean
        - run: pip3 install -r requirements.txt
        - run: python scim-server-sigsci.py &
        - run: curl https://localhost:5000/exit
