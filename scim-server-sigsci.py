@@ -645,6 +645,11 @@ def groups_get():
     rv = ListResponse([])
     return flask.jsonify(rv.to_scim_resource())
 
+@app.route('/exit', methods=['GET'])
+def exit_app():
+    print("Exit called, exiting")
+    exit(0)
+
 
 if __name__ == "__main__":
     app.debug = True
