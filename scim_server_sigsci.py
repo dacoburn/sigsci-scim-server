@@ -30,14 +30,14 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import url_for
-from flask_socketio import SocketIO
-from flask_socketio import emit
+# from flask_socketio import SocketIO
+# from flask_socketio import emit
 import flask
 import requests
 import json
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+# socketio = SocketIO(app)
 
 appPort = None
 if 'APP_PORT' in os.environ:
@@ -522,7 +522,7 @@ def send_to_browser(obj):
 
 def render_json(obj):
     rv = obj.to_scim_resource()
-    send_to_browser(rv)
+    # send_to_browser(rv)
     return flask.jsonify(rv)
 
 
@@ -653,12 +653,17 @@ def exit_app():
 
 if __name__ == "__main__":
     app.debug = True
+    app.run(
+        host='0.0.0.0',
+        port=appPort,
+        ssl_context=(ssl_cert, ssl_key)
+        )
     
-    socketio.run(app,
-                 host='0.0.0.0',
-                 port=appPort,
-                 ssl_context=(ssl_cert, ssl_key)
-                 )
+    # socketio.run(app,
+    #              host='0.0.0.0',
+    #              port=appPort,
+    #              ssl_context=(ssl_cert, ssl_key)
+    #              )
     # socketio.run(app,
     #              host='0.0.0.0',
     #              port=appPort

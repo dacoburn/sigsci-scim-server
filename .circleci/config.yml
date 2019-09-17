@@ -4,7 +4,22 @@
      docker:
        - image: python:3.5-alpine3.9
      steps:
-       - checkout
-       - run: apk update && apk add curl &&  rm -rf /var/cache/apk/* 
-       - run: pip3 install -r requirements.txt
-       - run: python scim-server-sigsci.py &
+        - checkout
+        - run:
+            name: Install Python requirements
+            command: |
+            echo 'export TAG=${TAG}' >> $BASH_ENV
+            echo 'export IMAGE_NAME=${IMAGE_NAME}' >> $BASH_ENV
+            pip3 install -r requirements.txt
+        - run:
+            name: Run Server Tests
+            command: |
+              python test_scim_server_sigsci.py
+        - setup_remote_docker:
+            docker_layer_caching: true
+        - run:
+            name: Build and push Docker image
+            command: |
+              docker build -t $DOCKER_LOGIN/$IMAGE_NAME:$TAG .
+              echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+              docker push $DOCKER_LOGIN/$IMAGE_NAME:$TAG
