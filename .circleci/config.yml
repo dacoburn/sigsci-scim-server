@@ -6,6 +6,10 @@
      steps:
         - checkout
         - run:
+            name: Install curl
+            command: |
+              apk update && apk add curl &&  rm -rf /var/cache/apk/* 
+        - run:
             name: Install Python requirements
             command: |
               echo 'export TAG=${CIRCLE_BUILD_NUM}' >> $BASH_ENV
