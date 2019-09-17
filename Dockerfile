@@ -9,4 +9,4 @@ RUN apk update && apk add curl &&  rm -rf /var/cache/apk/*
 RUN pip3 install -r /app/requirements.txt
 
 WORKDIR /app
-ENTRYPOINT ["python3", "scim_server_sigsci.py"]
+ENTRYPOINT ["python3", "/app/scim_server_sigsci.py"]
