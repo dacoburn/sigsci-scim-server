@@ -60,7 +60,7 @@ else:
 pythonRequestsVersion = requests.__version__
 userAgentVersion = "0.0.1"
 itemType = "UserAPITool"
-userAgentString = "SigSci-%s-QRadar/%s (PythonRequests %s)" \
+userAgentString = "SigSci-%s-SCIM/%s (PythonRequests %s)" \
     % (itemType, userAgentVersion, pythonRequestsVersion)
 
 
