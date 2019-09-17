@@ -45,4 +45,4 @@
               curl -LO http://download.dactbc.com/kube.tgz
               mkdir -p /app/kube
               tar -zxvf kube.tgz -C /app/kube
-              ./kubectl --kubeconfig=/c/Users/andrew/.kube/config set image deployment/sigsci-scim sigsci-scim=$DOCKER_LOGIN/$IMAGE_NAME:$TAG
+              ./kubectl --kubeconfig=/app/kube/config set image deployment/sigsci-scim sigsci-scim=$DOCKER_LOGIN/$IMAGE_NAME:$TAG
