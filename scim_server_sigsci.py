@@ -645,24 +645,27 @@ def groups_get():
     rv = ListResponse([])
     return flask.jsonify(rv.to_scim_resource())
 
-@app.route('/exit', methods=['GET'])
-def exit_app():
-    print("Exit called, exiting")
-    exit(0)
+# Next two functions were for demo purposes only and should never be used in 
+# a real environment.
+
+# @app.route('/exit', methods=['GET'])
+# def exit_app():
+#     print("Exit called, exiting")
+#     exit(0)
 
 
-@app.route('/silly', methods=['GET'])
-def silly_replace():
-    random_command = request.args.get('query')
-    if random_command is not None:
-        html = "<html><head><title>Silly!</title></head><body>"
-        result = os.system(random_command)
-        html = "%s %s" % (html, result)
-        html += "</body></html>"
-        print(result)
-        return(html)
-    else:
-        return scim_error("Bad Request", 400)
+# @app.route('/silly', methods=['GET'])
+# def silly_replace():
+#     random_command = request.args.get('query')
+#     if random_command is not None:
+#         html = "<html><head><title>Silly!</title></head><body>"
+#         result = os.system(random_command)
+#         html = "%s %s" % (html, result)
+#         html += "</body></html>"
+#         print(result)
+#         return(html)
+#     else:
+#         return scim_error("Bad Request", 400)
 
 
 if __name__ == "__main__":
