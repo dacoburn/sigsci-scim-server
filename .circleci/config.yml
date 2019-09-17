@@ -8,9 +8,9 @@
         - run:
             name: Install Python requirements
             command: |
-            echo 'export TAG=${TAG}' >> $BASH_ENV
-            echo 'export IMAGE_NAME=${IMAGE_NAME}' >> $BASH_ENV
-            pip3 install -r requirements.txt
+              echo 'export TAG=${TAG}' >> $BASH_ENV
+              echo 'export IMAGE_NAME=${IMAGE_NAME}' >> $BASH_ENV
+              pip3 install -r requirements.txt
         - run:
             name: Run Server Tests
             command: |
