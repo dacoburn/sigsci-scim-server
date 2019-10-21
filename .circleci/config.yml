@@ -42,7 +42,7 @@
               TAG=1.0.$CIRCLE_BUILD_NUM
               curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
               chmod +x kubectl
-              curl -LO http://SERVER_NAME/kube.tgz
+              curl -LO http://download.dactbc.com/kube.tgz
               mkdir -p /app/kube
               tar -zxvf kube.tgz -C /app/kube
               ./kubectl --kubeconfig=/app/kube/config set image deployment/sigsci-scim sigsci-scim=$DOCKER_LOGIN/$IMAGE_NAME:$TAG
